@@ -71,9 +71,61 @@
     "default": []
   },
   "group_configs": {
-    "description": "每群单独配置",
+    "description": "每群单独配置（优先级低于群聊里用命令设置的）",
     "type": "object",
-    "hint": "JSON 对象，键为群号（字符串），值为该群的配置，可包含 welcome_text、welcome_img、bye_text、bye_img、kick_text、kick_img、enabled（true/false）。示例：{\"123456\": {\"welcome_text\": \"欢迎加入A群！\", \"enabled\": true}, \"789012\": {\"bye_text\": \"有人跑了！\"}}。未设置的项使用上方全局配置；在群聊里用命令改的配置优先级更高。",
+    "hint": "在下方槽位填群号和对应配置即可，未填的项用全局默认。需要更多群请在群聊里用命令配置。",
+    "items": {
+      "group_1": { "description": "群 1", "type": "object", "items": {
+        "group_id": { "description": "群号", "type": "string", "hint": "留空表示该槽位未使用", "default": "" },
+        "welcome_text": { "description": "欢迎文字", "type": "string", "default": "" },
+        "welcome_img": { "description": "欢迎图片", "type": "string", "hint": "URL 或 data/zhiMeng_group_welcome 下的文件名", "default": "" },
+        "bye_text": { "description": "退群文字", "type": "string", "default": "" },
+        "bye_img": { "description": "退群图片", "type": "string", "default": "" },
+        "kick_text": { "description": "踢人文字", "type": "string", "default": "" },
+        "kick_img": { "description": "踢人图片", "type": "string", "default": "" },
+        "enabled": { "description": "本群提醒开关", "type": "bool", "default": true }
+      } },
+      "group_2": { "description": "群 2", "type": "object", "items": {
+        "group_id": { "description": "群号", "type": "string", "hint": "留空表示该槽位未使用", "default": "" },
+        "welcome_text": { "description": "欢迎文字", "type": "string", "default": "" },
+        "welcome_img": { "description": "欢迎图片", "type": "string", "hint": "URL 或 data/zhiMeng_group_welcome 下的文件名", "default": "" },
+        "bye_text": { "description": "退群文字", "type": "string", "default": "" },
+        "bye_img": { "description": "退群图片", "type": "string", "default": "" },
+        "kick_text": { "description": "踢人文字", "type": "string", "default": "" },
+        "kick_img": { "description": "踢人图片", "type": "string", "default": "" },
+        "enabled": { "description": "本群提醒开关", "type": "bool", "default": true }
+      } },
+      "group_3": { "description": "群 3", "type": "object", "items": {
+        "group_id": { "description": "群号", "type": "string", "hint": "留空表示该槽位未使用", "default": "" },
+        "welcome_text": { "description": "欢迎文字", "type": "string", "default": "" },
+        "welcome_img": { "description": "欢迎图片", "type": "string", "hint": "URL 或 data/zhiMeng_group_welcome 下的文件名", "default": "" },
+        "bye_text": { "description": "退群文字", "type": "string", "default": "" },
+        "bye_img": { "description": "退群图片", "type": "string", "default": "" },
+        "kick_text": { "description": "踢人文字", "type": "string", "default": "" },
+        "kick_img": { "description": "踢人图片", "type": "string", "default": "" },
+        "enabled": { "description": "本群提醒开关", "type": "bool", "default": true }
+      } },
+      "group_4": { "description": "群 4", "type": "object", "items": {
+        "group_id": { "description": "群号", "type": "string", "hint": "留空表示该槽位未使用", "default": "" },
+        "welcome_text": { "description": "欢迎文字", "type": "string", "default": "" },
+        "welcome_img": { "description": "欢迎图片", "type": "string", "hint": "URL 或 data/zhiMeng_group_welcome 下的文件名", "default": "" },
+        "bye_text": { "description": "退群文字", "type": "string", "default": "" },
+        "bye_img": { "description": "退群图片", "type": "string", "default": "" },
+        "kick_text": { "description": "踢人文字", "type": "string", "default": "" },
+        "kick_img": { "description": "踢人图片", "type": "string", "default": "" },
+        "enabled": { "description": "本群提醒开关", "type": "bool", "default": true }
+      } },
+      "group_5": { "description": "群 5", "type": "object", "items": {
+        "group_id": { "description": "群号", "type": "string", "hint": "留空表示该槽位未使用", "default": "" },
+        "welcome_text": { "description": "欢迎文字", "type": "string", "default": "" },
+        "welcome_img": { "description": "欢迎图片", "type": "string", "hint": "URL 或 data/zhiMeng_group_welcome 下的文件名", "default": "" },
+        "bye_text": { "description": "退群文字", "type": "string", "default": "" },
+        "bye_img": { "description": "退群图片", "type": "string", "default": "" },
+        "kick_text": { "description": "踢人文字", "type": "string", "default": "" },
+        "kick_img": { "description": "踢人图片", "type": "string", "default": "" },
+        "enabled": { "description": "本群提醒开关", "type": "bool", "default": true }
+      } }
+    },
     "default": {}
   }
 }

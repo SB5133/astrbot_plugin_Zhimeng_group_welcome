@@ -70,17 +70,29 @@ class MyPlugin(Star):
         with open(self.json_path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
 
+    def _get_webui_group_conf(self, group_id) -> dict:
+        """从 WebUI 配置的 group_configs 槽位里找该群的配置"""
+        gc = self.config.get("group_configs", None) or {}
+        if not isinstance(gc, dict):
+            return {}
+        result = {}
+        for slot in gc.values():
+            if not isinstance(slot, dict):
+                continue
+            if str(slot.get("group_id", "")).strip() != str(group_id):
+                continue
+            for k, v in slot.items():
+                if k != "group_id" and v not in (None, "", []):
+                    result[k] = v
+        return result
+
     def _get_group_conf(self, group_id) -> dict:
         """合并优先级：群聊命令写入的配置 > WebUI 每群配置(group_configs) > 全局默认"""
         conf = self._load_data().get(str(group_id))
         conf = conf if isinstance(conf, dict) else {}
-        webui = self.config.get("group_configs", None) or {}
-        wc = webui.get(str(group_id)) if isinstance(webui, dict) else None
-        if isinstance(wc, dict):
-            merged = {k: v for k, v in wc.items() if v not in (None, "", [])}
-            merged.update({k: v for k, v in conf.items() if v not in (None, "", [])})
-            return merged
-        return conf
+        merged = self._get_webui_group_conf(group_id)
+        merged.update({k: v for k, v in conf.items() if v not in (None, "", [])})
+        return merged
 
     def _set_group_conf(self, group_id, key: str, value):
         data = self._load_data()
