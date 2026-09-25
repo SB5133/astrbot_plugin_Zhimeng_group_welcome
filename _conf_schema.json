@@ -69,5 +69,11 @@
     "type": "list",
     "hint": "填写需要发送消息的群号，如: [123456, 789012]",
     "default": []
+  },
+  "group_configs": {
+    "description": "每群单独配置",
+    "type": "object",
+    "hint": "JSON 对象，键为群号（字符串），值为该群的配置，可包含 welcome_text、welcome_img、bye_text、bye_img、kick_text、kick_img、enabled（true/false）。示例：{\"123456\": {\"welcome_text\": \"欢迎加入A群！\", \"enabled\": true}, \"789012\": {\"bye_text\": \"有人跑了！\"}}。未设置的项使用上方全局配置；在群聊里用命令改的配置优先级更高。",
+    "default": {}
   }
 }

@@ -29,6 +29,7 @@ async def is_valid_image_url(url: str):
 class MyPlugin(Star):
     def __init__(self, context: Context, config: AstrBotConfig):
         super().__init__(context)
+        self.config = config
         self.is_send_welcome = config.get("is_send_welcome", False)
         self.is_at = config.get("is_at", True)
         self.is_send_bye = config.get("is_send_bye", True)
@@ -70,8 +71,16 @@ class MyPlugin(Star):
             json.dump(data, f, ensure_ascii=False, indent=2)
 
     def _get_group_conf(self, group_id) -> dict:
+        """合并优先级：群聊命令写入的配置 > WebUI 每群配置(group_configs) > 全局默认"""
         conf = self._load_data().get(str(group_id))
-        return conf if isinstance(conf, dict) else {}
+        conf = conf if isinstance(conf, dict) else {}
+        webui = self.config.get("group_configs", None) or {}
+        wc = webui.get(str(group_id)) if isinstance(webui, dict) else None
+        if isinstance(wc, dict):
+            merged = {k: v for k, v in wc.items() if v not in (None, "", [])}
+            merged.update({k: v for k, v in conf.items() if v not in (None, "", [])})
+            return merged
+        return conf
 
     def _set_group_conf(self, group_id, key: str, value):
         data = self._load_data()

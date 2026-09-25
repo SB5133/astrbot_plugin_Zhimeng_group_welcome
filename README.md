@@ -1,7 +1,7 @@
-![:astrbot_plugin_Zhimeng_group_welcome](https://count.getloli.com/@:astrbot_plugin_Zhimeng_group_welcome?theme=minecraft)
+![:astrbot_plugin_Zhimeng_group_welcome]
 # 群欢迎（astrbot_plugin_Zhimeng_group_welcome）
 
-> AstrBot 插件（原 astrbot_plugin_hello-bye，由 稚梦/SB5133 接手维护）
+> AstrBot 插件（原 astrbot_plugin_hello-bye）
 
 
 ## 🐔 使用说明
