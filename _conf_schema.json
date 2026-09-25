@@ -1,0 +1,73 @@
+{
+  "is_send_welcome": {
+    "description": "是否发送入群欢迎消息",
+    "type": "bool",
+    "hint": "是否发送入群欢迎消息，默认关闭",
+    "default": false
+  },
+  "is_at": {
+    "description": "是否需要at发送入群欢迎消息",
+    "type": "bool",
+    "hint": "是否需要at，默认开启",
+    "default": true
+  },
+  "is_send_bye": {
+    "description": "是否发送退群告别消息",
+    "type": "bool",
+    "hint": "是否发送退群告别消息，默认开启",
+    "default": true
+  },
+  "is_debug": {
+    "description": "是否开启调试模式",
+    "type": "bool",
+    "hint": "是否开启调试模式，默认关闭",
+    "default": false
+  },
+  "welcome_text": {
+    "description": "入群欢迎消息",
+    "type": "string",
+    "default": "欢迎进群，有问题先看下群公告哦~"
+  },
+  "welcome_img": {
+    "description": "入群欢迎图片",
+    "hint": "填写入群信息的图片URL地址列表，例如：https://example.com/image1.jpg，默认空",
+    "type": "list",
+    "default": []
+  },
+  "bye_text": {
+    "description": "退群告别消息",
+    "type": "string",
+    "hint": "填写退群告别消息，其中 {username} 和 {userid} 会被替换为实际的昵称和qq号",
+    "default": "群友{username}({userid})退群了!"
+  },
+  "bye_img": {
+    "description": "退群告别图片",
+    "hint": "填写退群信息的图片URL地址，默认空",
+    "type": "list",
+    "default": []
+  },
+  "kick_text": {
+    "description": "被踢出群消息",
+    "type": "string",
+    "hint": "填写被踢出群消息，{username}、{userid}、{operator_name}、{operator_id} 会被替换",
+    "default": "群友{username}({userid})被管理员{operator_name}({operator_id})踢出群了!"
+  },
+  "kick_img": {
+    "description": "被踢出群图片",
+    "hint": "填写被踢出群图片URL地址，默认空",
+    "type": "list",
+    "default": []
+  },
+  "black_groups": {
+    "description": "黑名单",
+    "type": "list",
+    "hint": "填写不需要发送消息的群号，如: [123456, 789012]",
+    "default": []
+  },
+  "white_groups": {
+    "description": "白名单",
+    "type": "list",
+    "hint": "填写需要发送消息的群号，如: [123456, 789012]",
+    "default": []
+  }
+}

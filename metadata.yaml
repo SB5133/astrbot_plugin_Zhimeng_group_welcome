@@ -1,0 +1,9 @@
+name: astrbot_plugin_Zhimeng_group_welcome # 这是你的插件的唯一识别名。
+display-name: 群欢迎
+desc: 进群/退群消息提示，每个群可单独配置文字、图片和开关，支持全局黑白名单 # 插件简短描述
+version: v1.2.0 # 插件版本号。格式：v1.1.1 或者 v1.1
+author: SB5133 # 作者
+repo: https://github.com/SB5133/astrbot_plugin_Zhimeng_group_welcome # 插件的仓库地址
+support_platforms:
+  - aiocqhttp
+astrbot_version: ">=3.5"
